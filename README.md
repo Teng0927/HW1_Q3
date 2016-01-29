@@ -1,5 +1,7 @@
 # HW1_Q3
+
 echo "# HW1_Q3" >> README.md
+
 git init
 git add README.md
 git commit -m "first commit"
