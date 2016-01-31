@@ -27,7 +27,7 @@ int main(){
 
 	int k;
 	if(image.empty()){
-		std::cout << "imaginary missing";
+		std::cout << "image missing";
 		system ("pause");
 		return 0;
 	}
