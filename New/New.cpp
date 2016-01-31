@@ -17,9 +17,9 @@ int main(){
 	double color;
 	double cons;
 
-	std::cout << "調色(1~5):";
+	std::cout << "color(1~5):";
 	std::cin >> color;
-	std::cout << "對比度(1~5):";
+	std::cout << "contrast(1~5):";
 	std::cin >> cons;
 
 	color = color * 10;
@@ -27,24 +27,13 @@ int main(){
 
 	int k;
 	if(image.empty()){
-		std::cout << "圖片不見了QQ";
+		std::cout << "imaginary missing";
 		system ("pause");
 		return 0;
 	}
 	for(int i=0; i<image.rows; i++){
 		pixptr = image.ptr<uchar>(i);
 		for(int j=0; j<image.cols; j++){
-			/*if (pixptr[2] < 128){
-				if (pixptr[2] < 25.5) pixptr[2] = 0;
-				else pixptr[2] = pixptr[2] * 1.3 - 33;
-			}
-			else pixptr[2] = pixptr[2] * 0.68 + 40;
-
-			pixptr[1] = pixptr[1] * 0.68 + 40;
-			
-			if (pixptr[2] < 128) pixptr[2] = pixptr[0] * 0.68 + 40;
-			*/
-
 			a = pixptr[0] + pixptr[1] + pixptr[2];
 
 			if (a < 390){
@@ -78,7 +67,6 @@ int main(){
 					else pixptr[k] = pixptr[k] - a + b;
 				}
 			}
-			
 			else {												//light color
 				b = (a - 390)/color;
 				if (pixptr[2] < b) pixptr[2] = 0;
@@ -105,15 +93,6 @@ int main(){
 					else pixptr[k] = pixptr[k] + a - b;
 				}
 			}
-			
-			/*if (pixptr[0]>212) pixptr[0] = 255;
-			else pixptr[0] = pixptr[0] * 1.2; //blue
-			
-			if (pixptr[1]>212) pixptr[1] = 255;
-			else pixptr[1] = pixptr[1] * 1.1; //green
-			pixptr[2] = pixptr[2] * 0.9; //red
-			*/
-			
 			pixptr+=3;
 		}
 	}
