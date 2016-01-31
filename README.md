@@ -4,7 +4,6 @@
 * 最佳數值
 
 #Implementation
-
 * 可調整的數值部分：數值越**小**，效果越**大**。
 ```
 	std::cout << "調色(1~5):";
@@ -16,14 +15,14 @@
 	cons = cons * 10;
 ```
 	藉由這個部分，可以不更改code內容，<br/>
-	而直接在執行前輸入想要的數值。<br/>
+	而直接在執行前輸入想要的數值。
 
 * 調色：電影濾鏡的調色分為陰暗處與光亮處。<br/>
 首先，我藉由R,G,B加總數值，來判斷該點為陰暗處或光亮處。
 ```
 a = pixptr[0] + pixptr[1] + pixptr[2];
 ```
-	我將陰暗處與光亮處之分界訂在a=390。<br/>
+我將陰暗處與光亮處之分界訂在a=390。
 
   **陰暗處**
 
@@ -39,8 +38,8 @@ a = pixptr[0] + pixptr[1] + pixptr[2];
 	if (pixptr[0]>(255 - b)) pixptr[0] = 255;	//blue
 	else pixptr[0] = pixptr[0] + b;
 ```
-	由於此濾鏡之陰暗處看起來皆較為偏向藍綠色。<br/>
-	因此我依照比例將紅色數值降低，藍色與綠色數值調高，來達到此效果。<br/>
+由於此濾鏡之陰暗處看起來皆較為偏向藍綠色。<br/>
+因此我依照比例將紅色數值降低，藍色與綠色數值調高，來達到此效果。
 
 **光亮處**
 ```
@@ -52,8 +51,8 @@ a = pixptr[0] + pixptr[1] + pixptr[2];
 	if (pixptr[1] < b) pixptr[1] = 0;	//green
 	else pixptr[1] = pixptr[1] -b ;
 ```
-	此濾鏡過後的光亮處皆會偏向藍色，<br/>
-	因此我將紅色與綠色數值降低，來達到此效果。<br/>
+此濾鏡過後的光亮處皆會偏向藍色，<br/>
+因此我將紅色與綠色數值降低，來達到此效果。
 
 *重要的地方在於，必須要使調整過後的畫面依然自然，所以讓數值依原數值做變化。*
 
@@ -115,13 +114,13 @@ for (k = 0; k < 3; k++){
 **Before**
 <img src="image/city.jpg" >
 **After**
-<img src="image/Result_city.jpg" >
+<img src="image/Result_city.png" >
 
 * pic_2:
 **Before**
 <img src="image/try.jpg" >
 **After**
-<img src="image/Result_try.jpg" >
+<img src="image/Result_try.png" >
 
 #Reference
 1.  http://photoblog.hk/wordpress/105136/%E5%A6%82%E4%BD%95%E5%9C%A8-ps-%E4%BB%A5%E6%9B%B2%E7%B7%9A-curves-%E6%8B%89%E5%87%BA%E9%9B%BB%E5%BD%B1%E6%84%9F%E8%89%B2%E8%AA%BF
